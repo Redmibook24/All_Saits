@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кнопка «Нравится» и Рисование Сердечками</title>
+    <style>
+        .like-button {
+            background-color: #008CBA; /* Исходный цвет кнопки */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .liked {
+            background-color: #FF5722; /* Цвет кнопки при нажатии */
+        }
+
+        .draw-button {
+            background-color: #4CAF50; /* Цвет кнопки «Рисовать» */
+            color: white;
+        }
+
+        .heart {
+            width: 20px;
+            height: 20px;
+            background-color: red; /* Цвет сердечка */
+            position: absolute;
+            transform: rotate(45deg);
+            margin: 10px;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: red; /* Цвет сердечка */
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            left: 10px; /* Смещение для левой половины */
+            top: 0;
+        }
+
+        .heart::after {
+            top: 10px; /* Смещение для правой половины */
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <button id="likeButton" class="like-button">Нравится</button>
+    <button id="drawButton" class="draw-button">Рисовать</button>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        const drawButton = document.getElementById('drawButton');
+        let drawing = false;
+
+        // Обработчик для кнопки «Нравится»
+        likeButton.addEventListener('click', () => {
+            likeButton.classList.toggle('liked');
+            likeButton.textContent = likeButton.classList.contains('liked') ? 'Нравится (нажато)' : 'Нравится';
+        });
+
+        // Обработчик для кнопки «Рисовать»
+        drawButton.addEventListener('click', () => {
+            drawing = !drawing; // Переключаем состояние рисования
+            drawButton.textContent = drawing ? 'Прекратить рисовать' : 'Рисовать';
+
+            if (drawing) {
+                document.addEventListener('mousemove', createHeart);
+            } else {
+                document.removeEventListener('mousemove', createHeart);
+            }
+        });
+
+        function createHeart(event) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${event.pageX}px`;
+            heart.style.top = `${event.pageY}px`;
+            document.body.appendChild(heart);
+        }
+    </script>
+</body>
+</html>

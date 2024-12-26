@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=XBMnwwJYQvfN&format=png&color=000000" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПК Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="catal.css">
+    <script>
+        function toggleMenu(event) {
+            event.preventDefault();
+            document.getElementById("nav-menu").classList.toggle("show");
+        }
+    
+        window.onclick = function(event) {
+            var menu = document.getElementById("nav-menu");
+            if (!event.target.matches('.menu-btn') && menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            }
+        }
+    
+        // Закрываем меню при уходе курсора за его пределы
+        document.getElementById("nav-menu").addEventListener("mouseleave", function() {
+            this.classList.remove("show");
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="photo/logo.png" alt="Логотип" class="logo">
+        <h1>Каталог</h1>
+        <img src="photo/login.png" alt="Регистрация" class="register-icon" onclick="toggleModal()"> <!-- Кнопка регистрации -->
+        <div class="button-container">
+            <a href="glav.html" class="button button-3">Главная</button>
+            <a href="catal.html" class="button button-3">Каталог</a>
+            <button class="button button-3">Акции</button>
+            <button class="button button-4">Конфигуратор ПК</button>
+        </div>
+        <button class="menu-btn" onclick="toggleMenu(event)">&#9776;</button>
+        <ul id="nav-menu" class="dropdown">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Партнеры</a></li>
+            <li><a href="#article">Статья о комплектующих</a></li>
+            <li><a href="#links">Полезные ссылки</a></li>
+        </ul>
+    </header>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="toggleModal()">&times;</span>
+          <h2>Регистрация</h2>
+          <form>
+              <label for="username">Электронная почта:</label>
+              <input type="text" id="username" name="username" required>
+              <label for="email">Пароль:</label>
+              <input type="email" id="email" name="email" required>
+              <input type="submit" value="Зарегистрироваться">
+          </form>
+     </div>
+  </div>
+    <main>
+        
+        <section class="cards">
+            <div class="card" onclick="openLink('proc.html')">
+                <h3>Процессоры</h3>
+            </div>
+            <div class="card">
+                <h3>Оперативная память</h3>
+            </div>
+            <div class="card">
+                <h3>Видеокарты</h3>
+            </div>
+            <div class="card">
+                <h3>Блоки питания</h3>
+            </div>
+            <div class="card">
+                <h3>Охлаждение</h3>
+            </div>
+            <div class="card">
+                <h3>Материнские платы</h3>
+            </div>
+            <div class="card">
+                <h3>Хранилища данных</h3>
+            </div>
+            <div class="card">
+                <h3>Корпуса</h3>
+            </div>
+            <div class="card">
+                <h3>Переферия</h3>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="about">
+                <h2>О нас</h2>
+                <p>Сайт разработан студентом РТУ МИРЭА в целях получения практических и теоретических навыков по созданию и оформлению онлайн ресурсов.</p>
+    
+                <div class="social-buttons">
+                    <button class="social-button vk" onclick="window.location.href='https://vk.com/id369061652';">VK</button>
+                    <button class="social-button twitter" onclick="window.location.href='https://online-edu.mirea.ru/mod/folder/view.php?id=634682';">СДО</button>
+                    <button class="social-button instagram" onclick="window.location.href='https://youtube.com/';">YouTube</button>
+                </div>
+            </div>
+    
+            <div class="navigation">
+                <h2>Навигация</h2>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </div>
+    
+            <div class="contact-info">
+                <h2>Контактная информация</h2>
+                <p>Телефон: <a href="tel:+1234567890">+7 (916) 330 04-08</a></p>
+                <p>Email: <a href="mailto:contact@website.com">dimaproidakov006@gmail.com</a></p>
+                <button class="feedback-button" onclick="openModal()">Обратная связь</button>
+            </div>
+        </div>
+    
+        <p>&copy; 2024 практика по ПРКЧ</p>
+        <address>
+            Разработчик сайта: <a href="mailto:developer@mail.com">developer@mail.com</a>
+        </address>
+    </footer>
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Обратная связь</h2>
+            <form id="feedbackForm">
+                <label for="first-name">Имя:</label>
+                <input type="text" id="first-name" name="first-name" required>
+                
+                <label for="last-name">Фамилия:</label>
+                <input type="text" id="last-name" name="last-name" required>
+                
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="reason">Причина обращения:</label>
+                <textarea id="reason" name="reason" rows="4" required></textarea>
+                
+                <!-- Секция CAPTCHA -->
+                <div id="captcha-section">
+                    <label for="captcha">Капча: <span id="captchaText"></span></label>
+                    <input type="text" id="captchaInput" required>
+                    <button type="button" id="checkCaptchaButton" onclick="checkCaptcha()">Проверить</button>
+                    <small id="captchaError" style="color: red; display: none;">Неверный ввод. Попробуйте снова.</small>
+                </div>
+                
+                <button type="button" id="submitButton" onclick="submitForm()" disabled>Отправить</button>
+            </form>
+        </div>
+    </div>
+    <script src="scrpt/script.js"></script>
+    <script src="scrpt/reg.js"></script>
+    <script src="scrpt/feedback.js"></script>
+    <script src="scrpt/capcha.js"></script>
+    <script src="scrpt/card_text.js"></script>
+    <script>
+        function openLink(url) {
+          window.location.href = url;
+        }
+        </script>
+</body>
+</html>

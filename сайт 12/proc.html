@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=XBMnwwJYQvfN&format=png&color=000000" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПК Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="proc.css">
+</head>
+<body>
+    <header>
+        <img src="photo/logo.png" alt="Логотип" class="logo">
+        <h1>Каталог</h1>
+        <img src="photo/login.png" alt="Регистрация" class="register-icon" onclick="toggleModal()"> <!-- Кнопка регистрации -->
+        <div class="button-container">
+            <a href="glav.html" class="button button-3">Главная</a>
+            <a href="catal.html" class="button button-3">Каталог</a>
+            <button class="button button-3">Акции</button>
+            <button class="button button-4">Конфигуратор ПК</button>
+        </div>
+
+        <button class="cart-btn" onclick="toggleCart()">🛒</button>
+        <div id="cart" class="cart-modal">
+            <div class="cart-content">
+                <span class="close" onclick="toggleCart()">&times;</span>
+                <h2>Корзина</h2>
+                <ul id="cart-items"></ul>
+                <p>Итоговая стоимость: <span id="total-cost">0</span> ₽</p>
+                <button onclick="clearCart()">Очистить корзину</button>
+            </div>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu(event)">&#9776;</button>
+        <ul id="nav-menu" class="dropdown">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Партнеры</a></li>
+            <li><a href="#article">Статья о комплектующих</a></li>
+            <li><a href="#links">Полезные ссылки</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <!-- Элементы управления сортировкой -->
+        <div class="sort-container">
+            <label for="sort">Сортировать по:</label>
+            <select id="sort" onchange="sortProducts()">
+                <option value="name">Название</option>
+                <option value="price">Цена</option>
+                <option value="manufacturer">Производитель</option>
+            </select>
+        </div>
+
+        <!-- Список процессоров -->
+        <div class="processor-list" id="processor-list">
+            <div class="processor-card" data-name="Intel Core i9-11900K" data-price="3990" data-manufacturer="Intel">
+                <img src="photo/intel.png" alt="Processor 1" class="processor-image">
+                <div class="processor-info">
+                    <h3>Intel Core i9-11900K</h3>
+                    <p>Процессор 11-го поколения с высокой производительностью для геймеров и энтузиастов.</p>
+                    <ul>
+                        <li>Частота: 3.5 GHz (до 5.3 GHz в Boost)</li>
+                        <li>Ядер: 8</li>
+                        <li>Потоков: 16</li>
+                        <li>Кэш: 16 MB</li>
+                        <li>Цена: 3990 руб.</li>
+                    </ul>
+                    <button class="add-to-cart-btn" onclick="addToCart('Intel Core i9-11900K')">+</button>
+                </div>
+            </div>
+
+            <div class="processor-card" data-name="AMD Ryzen 9 5950X" data-price="8700" data-manufacturer="AMD">
+                <img src="photo/amd.png" alt="Processor 2" class="processor-image">
+                <div class="processor-info">
+                    <h3>AMD Ryzen 9 5950X</h3>
+                    <p>Лучший выбор для многоядерных задач и профессиональных рабочих станций.</p>
+                    <ul>
+                        <li>Частота: 3.4 GHz (до 4.9 GHz в Boost)</li>
+                        <li>Ядер: 16</li>
+                        <li>Потоков: 32</li>
+                        <li>Кэш: 64 MB</li>
+                        <li>Цена: 8700 руб.</li>
+                    </ul>
+                    <button class="add-to-cart-btn" onclick="addToCart('AMD Ryzen 9 5950X')">+</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="about">
+                <h2>О нас</h2>
+                <p>Сайт разработан студентом РТУ МИРЭА в целях получения практических и теоретических навыков по созданию и оформлению онлайн ресурсов.</p>
+    
+                <div class="social-buttons">
+                    <button class="social-button vk" onclick="window.location.href='https://vk.com/id369061652';">VK</button>
+                    <button class="social-button twitter" onclick="window.location.href='https://online-edu.mirea.ru/mod/folder/view.php?id=634682';">СДО</button>
+                    <button class="social-button instagram" onclick="window.location.href='https://youtube.com/';">YouTube</button>
+                </div>
+            </div>
+    
+            <div class="navigation">
+                <h2>Навигация</h2>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </div>
+    
+            <div class="contact-info">
+                <h2>Контактная информация</h2>
+                <p>Телефон: <a href="tel:+1234567890">+7 (916) 330 04-08</a></p>
+                <p>Email: <a href="mailto:contact@website.com">dimaproidakov006@gmail.com</a></p>
+                <button class="feedback-button" onclick="openModal()">Обратная связь</button>
+            </div>
+        </div>
+    
+        <p>&copy; 2024 практика по ПРКЧ</p>
+        <address>
+            Разработчик сайта: <a href="mailto:developer@mail.com">developer@mail.com</a>
+        </address>
+    </footer>
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Обратная связь</h2>
+            <form id="feedbackForm">
+                <label for="first-name">Имя:</label>
+                <input type="text" id="first-name" name="first-name" required>
+                
+                <label for="last-name">Фамилия:</label>
+                <input type="text" id="last-name" name="last-name" required>
+                
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="reason">Причина обращения:</label>
+                <textarea id="reason" name="reason" rows="4" required></textarea>
+                
+                <!-- Секция CAPTCHA -->
+                <div id="captcha-section">
+                    <label for="captcha">Капча: <span id="captchaText"></span></label>
+                    <input type="text" id="captchaInput" required>
+                    <button type="button" id="checkCaptchaButton" onclick="checkCaptcha()">Проверить</button>
+                    <small id="captchaError" style="color: red; display: none;">Неверный ввод. Попробуйте снова.</small>
+                </div>
+                
+                <button type="button" id="submitButton" onclick="submitForm()" disabled>Отправить</button>
+            </form>
+        </div>
+    </div>
+    <script src="scrpt/script.js"></script>
+    <script src="scrpt/reg.js"></script>
+    <script src="scrpt/feedback.js"></script>
+    <script src="scrpt/capcha.js"></script>
+    <script src="scrpt/card_text.js"></script>
+    <script src="scrpt/korzina.js"></script>
+    <script src="scrpt/sort.js"></script>
+</body>
+</html>

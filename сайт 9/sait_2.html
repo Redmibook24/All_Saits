@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <script>
+        function authorize() {
+            const username = prompt("Введите логин:");
+
+            if (username === null || username === "") {
+                alert("Отменено");
+            } else if (username === "Админ") {
+                const password = prompt("Введите пароль:");
+
+                if (password === null) {
+                    alert("Отменено");
+                } else if (password === "Я главный") {
+                    alert("Здравствуйте!");
+                } else {
+                    alert("Неверный пароль");
+                }
+            } else {
+                alert("Я вас не знаю");
+            }
+        }
+    </script>
+</head>
+<body onload="authorize()">
+    <h1>Авторизация</h1>
+</body>
+</html>
