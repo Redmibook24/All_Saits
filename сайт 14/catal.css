@@ -1,0 +1,493 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+  background: #35424a;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  display: flex; /* Flexbox для заголовка */
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-title {
+    margin: 0;              /* Убираем отступы по умолчанию */
+}
+
+.logo {
+    max-width: 100px;       /* Ширина логотипа */
+    margin-top: 10px;       /* Отступ сверху между заголовком и логотипом */
+}
+
+h1 {
+    margin-top: 10;
+    font-size: 2rem;
+}
+
+.menu-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #ffcc00;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #222b30;
+    min-width: 160px;
+    z-index: 1000;
+    margin-top: 40px;
+    right: 20px;
+}
+
+.dropdown li {
+    display: block;
+}
+
+.dropdown a {
+    padding: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ffcc00;
+}
+
+.show {
+    display: block;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет оборачивать элементы */
+    gap: 20px; /* Промежутки между элементами */
+}
+
+section, article, aside {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(65% - 20px); /* Основные секции занимают 65% ширины */
+}
+
+aside {
+    flex: 1 1 calc(30% - 20px); /* Боковой блок занимает 30% ширины */
+}
+
+h2 {
+    color: #35424a;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f1f1f1; /* Цвет фона подвала */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет блокам переходить на новую строку при малом размере экрана */
+    justify-content: space-between; /* Распределение блоков по ширине */
+    width: 100%;
+    max-width: 1200px; /* Максимальная ширина подвала */
+}
+
+.about, .navigation, .contact-info {
+    flex: 1; /* Каждый блок занимает равное пространство */
+    margin: 10px; /* Отступы между блоками */
+    min-width: 250px; /* Минимальная ширина блока */
+}
+/* Кнопки 6 практика*/
+/* Контейнер для кнопок */
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Общие стили для кнопок */
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #35424a;
+    background-color: #ffffff;
+    color: #35424a;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Стили для кнопок при наведении */
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 204, 0, 0.5);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+}
+
+.button:hover::before {
+    transform: scaleY(1);
+}
+
+/* Социальные кнопки */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.social-button {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1; /* Текст кнопки всегда поверх ::before */
+    transition: color 0.3s ease;
+}
+
+/* Псевдоэлемент для градиента, который появляется при наведении */
+.social-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1; /* Позади текста */
+}
+
+/* Градиенты для каждой кнопки */
+.social-button.vk {background-color: #4c75a3; /* Основной цвет кнопки */color: white; /* Цвет текста по умолчанию */
+}
+.social-button.twitter { background-color: #1da1f2; }
+.social-button.instagram { background-color: #e1306c; }
+
+.social-button.vk::before {
+    background: linear-gradient(135deg, #4c75a3, #35424a);
+}
+
+.social-button.twitter::before {
+    background: linear-gradient(135deg, #1da1f2, #0e71c8);
+}
+
+.social-button.instagram::before {
+    background: linear-gradient(135deg, #e05684, #86225b);
+}
+
+/* Эффект появления градиента при наведении */
+.social-button:hover::before {
+    transform: translateY(0);
+}
+
+.social-button:hover {
+    color: #ffffff; /* Убедимся, что текст остаётся белым */
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .card { max-width: 90%; }
+}
+/* Окно регистрации*/
+
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .register-btn {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 20px; /* Расположить сверху */
+    left: 20px; /* Расположить слева */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #35424a;
+    background-color: #ffffff;
+    color: #35424a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Эффект при наведении на кнопку */
+  .register-btn:hover {
+    background-color: #ffcc00;
+  }
+  
+  .menu-btn {
+    position: absolute; /* Позиционирование для кнопки меню */
+    top: 20px; /* Расположить сверху */
+    right: 20px; /* Расположить справа */
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #ffcc00;
+    cursor: pointer;
+  }
+  
+  .modal-content form {
+    display: flex;
+    flex-direction: column; /* Вертикальная компоновка */
+  }
+  
+  .modal-content label {
+    margin-top: 10px; /* Отступы между метками и полями ввода */
+  }
+  
+  .modal-content input[type="email"],
+  .modal-content input[type="password"] {
+    padding: 10px;
+    margin-top: 5px; /* Отступ между меткой и полем ввода */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+    font-size: 16px;
+  }
+  
+  .modal-content input[type="submit"] {
+    margin-top: 20px; /* Отступ перед кнопкой отправки */
+    padding: 10px;
+    background-color: #35424a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-content input[type="submit"]:hover {
+    background-color: #ffcc00; /* Цвет при наведении */
+  }
+  
+  /* Полупрозрачный текст в полях ввода */
+  .modal-content input::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Полупрозрачный текст */
+    opacity: 1; /* Для поддержки старых браузеров */
+  }
+  .register-icon {
+    cursor: pointer; /* Указатель при наведении */
+    width: 50px; /* Установите нужный размер */
+    height: auto; /* Сохраняем пропорции */
+    position: absolute; /* Позиционирование */
+    top: 20px;
+    left: 20px;
+  }
+  
+  /* Обратная связь*/
+  
+  .modal {
+      display: none; /* Скрыто по умолчанию */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; /* Добавляем прокрутку, если нужно */
+      background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  }
+  
+  .modal-content {
+      background-color: #fff;
+      margin: 15% auto; /* Отступ сверху и по центру */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px; /* Ширина модального окна */
+  }
+  
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  form {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  label {
+      margin: 5px 0;
+  }
+  
+  input, textarea {
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  /* Карточки в стиле glassmorphism */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    z-index: 0;
+}
+
+.card {
+    position: relative;
+    width: calc(33.33% - 20px); /* Ширина карточки на больших экранах */
+    height: 200px;
+    max-width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Подключение фото как фона для каждой карточки */
+.card:nth-child(1) {
+    background-image: url('photo/proc.png'); /* Укажите название файла изображения */
+}
+
+.card:nth-child(2) {
+    background-image: url('photo/operativ.png');
+}
+
+.card:nth-child(3) {
+    background-image: url('photo/video_karta.jpg');
+}
+
+.card:nth-child(4) {
+    background-image: url('photo/Blok.jpg');
+}
+
+.card:nth-child(5) {
+    background-image: url('photo/ohlad.jpg');
+}
+
+.card:nth-child(6) {
+    background-image: url('photo/mater.jpeg');
+}
+
+.card:nth-child(7) {
+    background-image: url('photo/SSD.jpeg');
+}
+
+.card:nth-child(8) {
+    background-image: url('photo/korpys.jpg');
+}
+
+.card:nth-child(9) {
+    background-image: url('photo/perepher.jpg');
+}
+
+/* Псевдоэлемент для градиента */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(24, 23, 23, 0.8));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+/* Появление градиента при наведении */
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Стиль текста поверх карточки */
+.card h3, .card p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+}
+
+@keyframes moveBackground {
+    0% { transform: rotate(45deg) translateX(0); }
+    50% { transform: rotate(45deg) translateX(10px); }
+    100% { transform: rotate(45deg) translateX(0); }
+}
